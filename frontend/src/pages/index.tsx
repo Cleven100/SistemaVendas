@@ -1,10 +1,11 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Layout from 'components/layout';
 
 
+const Home: React.FC = () => {
 
-const Home: NextPage = () => {
-  return (
+ return (
     <div>
       <Head>
         <title>APP de vendas</title>
@@ -12,9 +13,14 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+
+      <Layout/>
+     
     
     </div>
   )
 }
+
+
 
 export default Home
