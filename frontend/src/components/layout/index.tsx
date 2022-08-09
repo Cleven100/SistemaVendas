@@ -1,9 +1,10 @@
 import React from 'react'
+import Menu from './menu';
 
 const Layout: React.FC = () => {
   return (
     <section className="main-content columns is fullheight">
-      
+      <Menu />
       <div className="container column is-10">
         <div className="section">
             <div className="card">
