@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from 'components/layout'
 
 const RegisterProduct: React.FC = () => {
+  
+   const [sku, setSku] = useState('')
+   const [price, setPrice] = useState('');
+   const [name, setName] = useState('');
+   const [description, setDescription] = useState('');
+
+   const submit = () => {
+     const product = {
+        sku, price, name, description
+     }
+   }
+
     return (
         <>
 
@@ -12,14 +24,18 @@ const RegisterProduct: React.FC = () => {
                     <div className="field is-half column" >
                         <label htmlFor="inputSKU" className='label'>SKU: *</label>
                         <div className="control">
-                            <input id="inputSKU" placeholder="Enter the SKU of Product:" type="text" className="input" />
+                            <input id="inputSKU" value={sku}  placeholder="Enter the SKU of Product:" type="text" className="input"
+                            onChange={event => setSku(event.target.value)} 
+                            />
                         </div>
                     </div>
 
                     <div className="field is-half column" >
                         <label htmlFor="inputPrice" className='label'>Price: *</label>
                         <div className="control">
-                            <input id="inputPrice" placeholder="Enter the Price of Product:" type="text" className="input" />
+                            <input id="inputPrice" value={price} placeholder="Enter the Price of Product:" type="text" className="input" 
+                            onChange={event => setPrice(event.target.value)} 
+                            />
                         </div>
                     </div>
                 </div>
@@ -28,7 +44,9 @@ const RegisterProduct: React.FC = () => {
                     <div className="field is-full column" >
                         <label htmlFor="inputName" className='label'>Name: *</label>
                         <div className="control">
-                            <input id="inputName" placeholder="Enter the Name of Product:" type="text" className="input" />
+                            <input id="inputName" placeholder="Enter the Name of Product:" type="text" value={name} className="input"
+                            onChange={event => setName(event.target.value)} 
+                            />
                         </div>
                     </div>
                     </div>
@@ -37,14 +55,15 @@ const RegisterProduct: React.FC = () => {
                 <div className="field if-full column" >
                     <label htmlFor="inputDesc" className='label'>Description: *</label>
                     <div className="control">
-                        <textarea id="inputDesc" placeholder="Enter the Name of Product:" className="textarea" />
+                        <textarea id="inputDesc" placeholder="Enter the Name of 
+                        Product:" value={description} onChange={event => setDescription(event.target.value)} className="textarea" />
                     </div>
                 </div>
                 </div>
 
                 <div className="field is-grouped">
                     <div className="control">
-                        <button className="button">
+                        <button className="button" onClick={submit}>
                             Save
                         </button>
                     </div>
