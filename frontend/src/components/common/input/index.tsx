@@ -1,6 +1,7 @@
-import React from 'react'
+import React,{ InputHTMLAttributes } from 'react'
 
-interface InputProps {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+    id: string;
     onChange?: (value) => void;
     label: string;
     columnClasses?: string;
@@ -10,13 +11,15 @@ interface InputProps {
 const Input: React.FC<InputProps> = ({
  onChange,
  label,
- columnClasses
+ columnClasses,
+ id,
+ ...props
 }: InputProps) => {
     return (
         <div className={`field column  ${columnClasses}`} >
-            <label htmlFor="inputSKU" className='label'>{label}</label>
+            <label htmlFor={id} className='label'>{label}</label>
             <div className="control">
-                <input id="inputSKU" value={"sku"} placeholder="Enter the SKU of Product:" type="text" className="input"
+                <input id={id} {...props} placeholder={props.placeholder} type="text" className="input"
                     onChange={event => {if(onChange){
                         onChange(event.target.value)
                     }}}
