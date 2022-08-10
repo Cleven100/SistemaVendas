@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import Layout from 'components/layout'
+import Input from 'components/common/input'
 
 const RegisterProduct: React.FC = () => {
   
-   const [sku, setSku] = useState('')
-   const [price, setPrice] = useState('');
-   const [name, setName] = useState('');
-   const [description, setDescription] = useState('');
+   const [sku, setSku] = useState<string>('')
+   const [price, setPrice] = useState<string>('');
+   const [name, setName] = useState<string>('');
+   const [description, setDescription] = useState<string>('');
 
    const submit = () => {
      const product = {
@@ -19,7 +20,9 @@ const RegisterProduct: React.FC = () => {
 
             <Layout title="Product registration" >
                 <div className="columns">
-
+                    <Input label="SKU *" columnClasses='is-half'
+                    onChange={setSku}
+                    ></Input>
 
                     <div className="field is-half column" >
                         <label htmlFor="inputSKU" className='label'>SKU: *</label>
