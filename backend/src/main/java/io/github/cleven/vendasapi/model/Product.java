@@ -13,6 +13,20 @@ import javax.persistence.Table;
 @Table(name = "product")
 public class Product {
 
+
+    public Product() {
+        super();
+    }
+    
+
+    public Product(String name, String description, BigDecimal price, String sku) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.sku = sku;
+    }
+
+
     @Override
     public String toString() {
         return "Product [description=" + description + ", id=" + id + ", name=" + name + ", price=" + price + ", sku="
@@ -38,6 +52,9 @@ public class Product {
     public String getDescription() {
         return description;
     }
+
+
+
 
     public void setDescription(String description) {
         this.description = description;
@@ -69,7 +86,7 @@ public class Product {
     @Column(name = "description", length = 255 )
     private String description;
 
-    @Column(name = "price", precision = 2, scale = 16)
+    @Column(name = "price", precision = 16, scale = 2)
     private BigDecimal price;
 
     @Column
